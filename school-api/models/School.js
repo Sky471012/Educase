@@ -16,11 +16,20 @@ const School = sequelize.define('school', {
     allowNull: false
   },
   latitude: {
-    type: DataTypes.FLOAT
+    type: DataTypes.FLOAT,
+    allowNull: false
   },
   longitude: {
-    type: DataTypes.FLOAT
+    type: DataTypes.FLOAT,
+    allowNull: false
   }
+}, {
+  indexes: [
+    {
+      unique: true,
+      fields: ['latitude', 'longitude'] // composite unique key
+    }
+  ]
 });
 
 module.exports = School;
